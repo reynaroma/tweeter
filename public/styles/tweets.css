@@ -1,0 +1,65 @@
+/* Display Tweets CSS */
+.tweet-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-right: -1%;
+  margin-left: -1%;
+  border: 5px solid #545149;
+  padding: 10px;
+  height: 350px;
+}
+.header-tweets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-name {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  font-weight: bold;
+}
+
+.userhandle {
+  color: #888;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.tweet-label {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  font-size: 18px;
+}
+
+.footer-tweets {
+  border-top: 5px solid #545149;
+  margin: 15px;
+}
+
+.footer-tweets .react-icons i {
+  margin-right: 10px;
+  color: #4056a1;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.footer-tweets .react-icons i:hover {
+  color: #888888;
+  cursor: pointer;
+}
+
+.tweet-container:hover {
+  box-shadow: 15px 15px 5px rgb(147, 165, 164);
+}

@@ -6,24 +6,103 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
+    
+    <!-- Google Fonts for Bungee and Source Sans 3 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+
+    <!-- To be able to use the logo from the source -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+    <nav class="navbar">
+      <span class="tweeter-logo">TWEETER</span>
+      <div class="tweeter-text-icon">
+        <div class="tweet-nav-text"><b>Write</b> a new tweet</div>
+        <i class="tweet-icon fa-solid fa-angles-down fa-beat-fade" style="color: #ff0000;"></i>
+      </div>
     </nav>
 
+    <header class="header-login">
+      <div>
+          <img id="header-icon" src="/images/profile-hex.png"> 
+      </div>
+      <div>
+          <h2 class="header-login-name">Reyna May <span id="last-name">Roma</span></h2>
+      </div>
+  </header>
+
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      
+      <h1>Lorem Ipsum Generator</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque adipisci soluta est ex nostrum eum tenetur consequatur itaque similique perspiciatis debitis deleniti, dolorum, rem dolorem modi at non nesciunt numquam?</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque et deleniti eos accusantium repellendus cum, praesentium iste, illum porro error, consectetur ad tempore perspiciatis officia eveniet quasi. Eius, perspiciatis fuga!</p>
+      <h2>More text</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi veniam laborum hic tempora maiores id nam facilis vitae? A, quam. Possimus temporibus corrupti consequuntur nemo ut facere voluptas repellendus reiciendis.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, distinctio dolorum assumenda tempora inventore ducimus reiciendis deleniti nemo praesentium iusto, magni minima impedit iure, dolores molestias voluptatem aliquam! Dolorum, obcaecati.</p>
+      
+      <!-- Section for creating a new tweet -->
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="post" action="/tweets/">
+          <!-- tweet-outline div -->
+          <div class="tweet-outline">
+            <label for="tweet-text"><b>What are you humming about?</b></label>
+            <textarea id="tweet-text" name="text"></textarea>
+          </div>
+          <!-- tweet-outline div -->
+          <div id="tweet-button">
+            <button type="submit" class="button-tweet">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+
+      <!-- Tweets Section -->
+      <article class="tweet-container">
+        <header class="header-tweets">
+          <div class="icon-name">
+            <img id="tweeter-icon" src="/images/man.png"> 
+            <output name="username" class="user">Chris Hemsworth</output>
+          </div>
+          <output name="userhandle" class="userhandle">@GodOfThunder</output>
+        </header>
+
+        <div class="tweet-label">
+          <label><b>If I have seen further it is by standing on the shoulder of the giants</b></label>
+        </div>
+
+        <footer class="footer-tweets">
+          <div class="footer-info">
+            <label for="tweet-date"><b>10 days ago</b></label>
+            <div class="react-icons">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+        </footer>
+      </article>
+
+    </main>
+    <!-- <script> alert("Yo! Welcome to my Tweeter App man!") </script> -->
   </body>
 </html>

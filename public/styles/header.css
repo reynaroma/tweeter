@@ -1,0 +1,27 @@
+.header-login {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  background-color: #bdad00;
+  background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */ 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 120px; /* Offset the header by the height of the nav-bar */
+  z-index: 1; /* Ensure the header is above other elements */
+}
+#header-icon {
+  margin-top: 20px;
+  width: 220px;
+  height: 220px;
+}
+.header-login-name {
+  margin-top: 10px;
+  color: #FFFFFF;
+  font-size: 35px;
+}
+#last-name {
+  font-weight: normal;
+}

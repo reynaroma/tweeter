@@ -1,0 +1,40 @@
+nav {
+  height: 120px;
+  width: 100%; /* full viewport */
+  background-color: #4056a1;
+  color: #FFFFFF;
+  padding: 0 1.5em; /*1.5 em space on the right and left between content and edges*/
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+nav span {
+  font-size: 48px;
+  margin-top: 50px;
+  font-family: 'Bungee', sans-serif;
+}
+
+/* --------TWEET----------- */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Pushes content to both edges */
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.tweet-nav-text {
+  font-size: 23px;
+}
+
+.tweet-icon {
+  font-size: 20px;
+  margin-left: 82px;
+}
+
+.tweeter-text-icon {
+  margin-top: 40px;
+}
