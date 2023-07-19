@@ -94,7 +94,7 @@ $(document).ready(function() {
       // create a tweet element for each element in the array
       const $tweetItem = createTweetElement(tweetItem);
       // add the new tweet to the tweet container
-      $container.append($tweetItem);
+      $container.prepend($tweetItem);
     }
   };
 
@@ -131,4 +131,8 @@ $(document).ready(function() {
 
   renderTweets(data);
 
+  $('#target').on('submit', function(event) {
+    alert('Handler for submit called.');
+    event.preventDefault();
+  });
 });
