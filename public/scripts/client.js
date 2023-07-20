@@ -81,6 +81,11 @@ $(document).ready(function () {
     event.preventDefault();
     const tweetText = $(this).find('textarea').val();
     const $errorElement = $('.error-message');
+    const $textarea = $('#tweet-text');
+    // event listener for textarea if there's an input
+    $textarea.on('input', function() {
+      $errorElement.slideUp();
+    });
     
     if (tweetText.trim() === '') {
       $errorElement.text('Error: Tweet cannot be empty');
