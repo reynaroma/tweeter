@@ -59,31 +59,31 @@ $(document).ready(function () {
   // $('.tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
   // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+  // const data = [
+  //   {
+  //     "user": {
+  //       "name": "Newton",
+  //       "avatars": "https://i.imgur.com/73hZDYK.png"
+  //       ,
+  //       "handle": "@SirIsaac"
+  //     },
+  //     "content": {
+  //       "text": "If I have seen further it is by standing on the shoulders of giants"
+  //     },
+  //     "created_at": 1461116232227
+  //   },
+  //   {
+  //     "user": {
+  //       "name": "Descartes",
+  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
+  //       "handle": "@rd"
+  //     },
+  //     "content": {
+  //       "text": "Je pense , donc je suis"
+  //     },
+  //     "created_at": 1461113959088
+  //   }
+  // ];
 
   const renderTweets = function (tweets) {
     // loops through tweets
@@ -130,7 +130,6 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  renderTweets(data);
   // add an event listener that listens for the submit event
   $('#create-tweet-id').on('submit', function (event) {
     alert('Handler for submit called.');
@@ -150,15 +149,20 @@ $(document).ready(function () {
   });
 
   const loadTweets = function () {
-    $.ajax({
-      method: 'GET',
-      url: '/tweets',
-      datatype: 'json',
-    }).then((response) => {
-      alert('This is the GET response');
-      console.log('Success:', response);
-    }).catch((error) => {
-      console.error('Error:', error.status, error.responseText);
+    alert('You are in the GET request');
+    $('.button-tweet').click('click', function() {
+      console.log('Button clicked, performing ajax call GET REQUEST...');
+      $.ajax({
+        method: 'GET',
+        url: '/tweets',
+        datatype: 'json'
+      }).then((response) => {
+        renderTweets(response);
+        console.log(response);
+      }).catch((error) => {
+        console.error('Error:', error.status, error.responseText);
+      });
     });
   };
+  loadTweets();
 });
