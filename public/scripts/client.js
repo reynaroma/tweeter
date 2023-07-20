@@ -12,6 +12,7 @@ $(document).ready(function () {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
     const $container = $('.tweet-item-container');
+    // empty the container after submission
     $container.empty();
     // iterate through the provided array
     for (const tweetItem of tweets) {
