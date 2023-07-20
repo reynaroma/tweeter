@@ -12,7 +12,7 @@ $(document).ready(function () {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
     const $container = $('.tweet-item-container');
-    // $container.empty();
+    $container.empty();
     // iterate through the provided array
     for (const tweetItem of tweets) {
       // create a tweet element for each element in the array
@@ -98,7 +98,7 @@ $(document).ready(function () {
       datatype: 'json',
     }).then((response) => {
       console.log('Success:', response);
-      $(this).find('textarea').val('');
+      $(this)[0].reset();
       loadTweets();
     }).catch((error) => {
       console.error('Error:', error.status, error.responseText);
