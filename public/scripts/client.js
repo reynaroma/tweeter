@@ -29,6 +29,7 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
     /* Your code for creating the tweet element */
     // ...
+    const safeText = DOMPurify.sanitize(tweet.content.text);
     const unixTimestampMs = new Date(tweet.created_at).getTime();
     let $tweet = $(`
       <article class="tweet-container">
@@ -40,7 +41,7 @@ $(document).ready(function () {
           <output name="userhandle" class="userhandle">${tweet.user.handle}</output>
         </header>
         <div class="tweet-label">
-          <label><b>${tweet.content.text}</b></label>
+          <label><b>${safeText}</b></label>
         </div>
         <div>
           <hr>
@@ -89,6 +90,8 @@ $(document).ready(function () {
       alert('Character exceeds 140.');
       return;
     }
+
+    $('.counter').text('140');
     // serialize the form data
     console.log(tweetText);
     $.ajax({
