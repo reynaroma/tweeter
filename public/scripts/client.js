@@ -80,15 +80,18 @@ $(document).ready(function () {
     // prevent the default behaviour of the submit event
     event.preventDefault();
     const tweetText = $(this).find('textarea').val();
-
+    const $errorElement = $('.error-message');
+    
     if (tweetText.trim() === '') {
-      alert('This should not be empty, please enter a tweet.');
+      $errorElement.text('Error: Tweet cannot be empty');
+      $errorElement.slideDown();
       return;
-    }
-
-    if (tweetText.length > 140) {
-      alert('Character exceeds 140.');
+    } else if (tweetText.length > 140) {
+      $errorElement.text('Error: Tweet cannot exceed 140 characters.');
+      $errorElement.slideDown();
       return;
+    } else {
+      $errorElement.hide();
     }
 
     $('.counter').text('140');
