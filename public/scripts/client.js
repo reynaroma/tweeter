@@ -1,10 +1,11 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-disable no-undef */
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function() {
+$(document).ready(function () {
   console.log('I am inside the event handler');
 
   // const createTweetElement = function(tweet) {
@@ -84,7 +85,7 @@ $(document).ready(function() {
     }
   ];
 
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -98,7 +99,7 @@ $(document).ready(function() {
     }
   };
 
-  const createTweetElement = function(tweet) {
+  const createTweetElement = function (tweet) {
     /* Your code for creating the tweet element */
     // ...
     let $tweet = $(`
@@ -130,9 +131,34 @@ $(document).ready(function() {
   };
 
   renderTweets(data);
-
-  $('#target').on('submit', function(event) {
+  // add an event listener that listens for the submit event
+  $('#create-tweet-id').on('submit', function (event) {
     alert('Handler for submit called.');
+    // prevent the default behaviour of the submit event
     event.preventDefault();
+    // serialize the form data
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: $(this).serialize(),
+      datatype: 'json',
+    }).then((response) => {
+      console.log('Success:', response);
+    }).catch((error) => {
+      console.error('Error:', error.status, error.responseText);
+    });
   });
+
+  const loadTweets = function () {
+    $.ajax({
+      method: 'GET',
+      url: '/tweets',
+      datatype: 'json',
+    }).then((response) => {
+      alert('This is the GET response');
+      console.log('Success:', response);
+    }).catch((error) => {
+      console.error('Error:', error.status, error.responseText);
+    });
+  };
 });
