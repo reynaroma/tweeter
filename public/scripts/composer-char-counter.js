@@ -21,6 +21,7 @@ $(document).ready(function() {
     // Add event handler and remove the event handler
     if (characterLeft < 0) {
       $counter.addClass('negative');
+      
     } else {
       $counter.removeClass('negative');
     }
