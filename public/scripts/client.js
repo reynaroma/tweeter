@@ -7,7 +7,6 @@
  */
 $(document).ready(function () {
   console.log('I am inside the event handler');
-
   // const createTweetElement = function(tweet) {
   //   /* Your code for creating the tweet element */
   //   // ...
@@ -84,12 +83,12 @@ $(document).ready(function () {
   //     "created_at": 1461113959088
   //   }
   // ];
-
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
     const $container = $('.tweet-item-container');
+    // $container.empty();
     // iterate through the provided array
     for (const tweetItem of tweets) {
       // create a tweet element for each element in the array
@@ -97,11 +96,16 @@ $(document).ready(function () {
       // add the new tweet to the tweet container
       $container.prepend($tweetItem);
     }
+    $('.tweet-item-container .date-label').each(function () {
+      const timestamp = new Date($(this).attr('datetime'));
+      $(this).text(timeago.format(timestamp, 'en_US', { allowFuture: false }));
+    });
   };
 
   const createTweetElement = function (tweet) {
     /* Your code for creating the tweet element */
     // ...
+    const unixTimestampMs = new Date(tweet.created_at).getTime();
     let $tweet = $(`
       <article class="tweet-container">
         <header class="header-tweets">
@@ -118,7 +122,7 @@ $(document).ready(function () {
           <hr>
         </div>
         <footer class="footer-tweets">
-          <label class="date-label" for="tweet-date"><b>${tweet.created_at}</b></label>
+          <label class="date-label timeago" datetime="${unixTimestampMs}" for="tweet-date"><b>${tweet.created_at}</b></label>
           <div class="react-icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -127,12 +131,28 @@ $(document).ready(function () {
         </footer>
       </article>
     `);
+    console.log(unixTimestampMs);
     return $tweet;
+  };
+
+  const loadTweets = function () {
+    console.log('Button clicked, performing ajax call GET REQUEST...');
+    $('.button-tweet').click('click', function () {
+      $.ajax({
+        method: 'GET',
+        url: '/tweets',
+        datatype: 'json'
+      }).then((response) => {
+        console.log(response);
+        renderTweets(response);
+      }).catch((error) => {
+        console.error('Error:', error.status, error.responseText);
+      });
+    });
   };
 
   // add an event listener that listens for the submit event
   $('#create-tweet-id').on('submit', function (event) {
-    alert('Handler for submit called.');
     // prevent the default behaviour of the submit event
     event.preventDefault();
     // serialize the form data
@@ -143,26 +163,11 @@ $(document).ready(function () {
       datatype: 'json',
     }).then((response) => {
       console.log('Success:', response);
+      loadTweets();
     }).catch((error) => {
       console.error('Error:', error.status, error.responseText);
     });
   });
-
-  const loadTweets = function () {
-    alert('You are in the GET request');
-    $('.button-tweet').click('click', function() {
-      console.log('Button clicked, performing ajax call GET REQUEST...');
-      $.ajax({
-        method: 'GET',
-        url: '/tweets',
-        datatype: 'json'
-      }).then((response) => {
-        renderTweets(response);
-        console.log(response);
-      }).catch((error) => {
-        console.error('Error:', error.status, error.responseText);
-      });
-    });
-  };
+  
   loadTweets();
 });
