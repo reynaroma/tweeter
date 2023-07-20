@@ -4,6 +4,10 @@
     font-family: 'Bungee', sans-serif;
 }
 
+.button-tweet:hover {
+  box-shadow: 10px 10px 5px rgb(152, 157, 223);
+}
+
 .tweet-outline {
   display: flex;
   flex-direction: column;
