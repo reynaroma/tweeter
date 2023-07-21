@@ -29,9 +29,9 @@ $(document).ready(function () {
 
   const createTweetElement = function (tweet) {
     /* Your code for creating the tweet element */
-    // ...
     const safeText = DOMPurify.sanitize(tweet.content.text);
-    const unixTimestampMs = new Date(tweet.created_at).getTime();
+    // Convert tweetCreatedAt to UTC time string
+    const tweetCreatedAt = new Date(tweet.created_at).toUTCString();
     let $tweet = $(`
       <article class="tweet-container">
         <header class="header-tweets">
@@ -48,7 +48,7 @@ $(document).ready(function () {
           <hr>
         </div>
         <footer class="footer-tweets">
-          <label class="date-label timeago" datetime="${unixTimestampMs}" for="tweet-date"><b>${tweet.created_at}</b></label>
+          <label class="date-label timeago" datetime="${tweetCreatedAt}" for="tweet-date"><b></b></label>
           <div class="react-icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -57,20 +57,12 @@ $(document).ready(function () {
         </footer>
       </article>
     `);
-
-    const tweetCreatedAt = new Date(tweet.created_at);
-
-    const currentDate = new Date();
-
-    const timePassed = timeago.format(tweetCreatedAt, currentDate, 'en_US');
-
-    $tweet.find('.date-label').text(timePassed);
     return $tweet;
   };
 
   const loadTweets = function () {
     console.log('Button clicked, performing ajax call GET REQUEST...');
-    // $('.button-tweet').click('click', function () {
+
     $.ajax({
       method: 'GET',
       url: '/tweets',
@@ -81,16 +73,19 @@ $(document).ready(function () {
     }).catch((error) => {
       console.error('Error:', error.status, error.responseText);
     });
-    // });
+
   };
 
   // add an event listener that listens for the submit event
   $('#create-tweet-id').on('submit', function (event) {
+
     // prevent the default behaviour of the submit event
     event.preventDefault();
+
     const tweetText = $(this).find('textarea').val();
     const $errorElement = $('.error-message');
     const $textarea = $('#tweet-text');
+
     // event listener for textarea if there's an input
     $textarea.on('input', function () {
       $errorElement.slideUp();
@@ -109,8 +104,8 @@ $(document).ready(function () {
     }
 
     $('.counter').text('140');
+
     // serialize the form data
-    console.log(tweetText);
     $.ajax({
       method: 'POST',
       url: '/tweets',

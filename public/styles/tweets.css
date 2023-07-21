@@ -8,8 +8,8 @@
   margin-left: -1%;
   border: 5px solid #545149;
   padding: 10px;
-  /* height: 250px; */
 }
+
 .header-tweets {
   display: flex;
   align-items: center;
@@ -55,7 +55,6 @@ hr {
   justify-content: space-between;
   margin-right: 15px;
   margin-left: 15px;
-  /* margin-bottom: 15px; */
 }
 
 .footer-tweets .react-icons i {
