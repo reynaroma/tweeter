@@ -31,6 +31,12 @@ In your terminal:
 npm install <package> --save
 ```
 
+To run the project in your terminal: (make sure it's in the root directory of the project)
+
+```terminal
+npm run local
+```
+
 ## Final Product
 
 !["Screenshot of Tweeter App create tweet page"](https://github.com/reynaroma/tweeter/blob/master/docs/desktop-create-tweet-image.png)
