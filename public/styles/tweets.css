@@ -8,7 +8,7 @@
   margin-left: -1%;
   border: 5px solid #545149;
   padding: 10px;
-  height: 350px;
+  /* height: 250px; */
 }
 .header-tweets {
   display: flex;
@@ -39,7 +39,7 @@
 hr {
   height: 3px;
   background-color: #545149;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .date-label {
@@ -51,7 +51,7 @@ hr {
   justify-content: space-between;
   margin-right: 15px;
   margin-left: 15px;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 
 .footer-tweets .react-icons i {

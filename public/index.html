@@ -3,6 +3,8 @@
 
 <head>
   <!-- Meta Information -->
+  <meta charset="UTF-8" />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   <title>Tweeter - Home Page</title>
 
   <!-- External CSS -->
@@ -22,6 +24,7 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/media.css" type="text/css" />
 
   <!-- To be able to use the logo from the source -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -49,40 +52,42 @@
       <i class="tweet-icon fa-solid fa-angles-down fa-beat-fade" style="color: #ff0000;"></i>
     </div>
   </nav>
-
-  <header class="header-login">
-    <div>
-      <img id="header-icon" src="/images/profile-hex.png">
-    </div>
-    <div>
-      <h2 class="header-login-name">Reyna May <span id="last-name">Roma</span></h2>
-    </div>
-  </header>
-
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <!-- Section for creating a new tweet -->
-    <section class="new-tweet">
-      <!-- Error message container -->
-      <div class="error-message"></div>
-      <h2>Compose Tweet</h2>
-      <form id="create-tweet-id" method="post" action="/tweets/">
-        <!-- tweet-outline div -->
-        <div class="tweet-outline">
-          <label for="tweet-text"><b>What are you humming about?</b></label>
-          <textarea id="tweet-text" name="text"></textarea>
-        </div>
-        <!-- tweet-outline div -->
-        <div id="tweet-button">
-          <button type="submit" class="button-tweet">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-
-    <!-- Tweets Section -->
-    <div class="tweet-item-container"></div>
-  </main>
+  <div class="div-container">
+    <header class="header-login">
+      <div>
+        <img id="header-icon" src="/images/profile-hex.png">
+      </div>
+      <div>
+        <h2 class="header-login-name">Reyna May <span id="last-name">Roma</span></h2>
+      </div>
+    </header>
+  
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <!-- Section for creating a new tweet -->
+      <section class="new-tweet">
+        <!-- Error message container -->
+        <div class="error-message"></div>
+        <!-- <h2>Compose Tweet</h2> -->
+        <form id="create-tweet-id" method="post" action="/tweets/">
+          <!-- tweet-outline div -->
+          <div class="tweet-outline">
+            <label for="tweet-text"><b>What are you humming about?</b></label>
+            <textarea id="tweet-text" name="text"></textarea>
+          </div>
+          <!-- tweet-outline div -->
+          <div id="tweet-button">
+            <button type="submit" class="button-tweet">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+  
+      <!-- Tweets Section -->
+      <div class="tweet-item-container"></div>
+    </main>
+  </div>
+  
 </body>
 
 </html>
