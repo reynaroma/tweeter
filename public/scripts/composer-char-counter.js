@@ -10,7 +10,6 @@ $(document).ready(function() {
     const textareaValue = $textarea.val();
     // Calculate the number of characters left
     const characterLeft = 140 - textareaValue.length;
-    console.log(`Characters left: ${characterLeft}`);
 
     // Find the .counter element by traversing up to the parent and back down
     const $counter = $textarea.closest('.new-tweet').find('.counter');

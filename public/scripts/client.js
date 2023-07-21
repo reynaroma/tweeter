@@ -57,6 +57,14 @@ $(document).ready(function () {
         </footer>
       </article>
     `);
+
+    const tweetCreatedAt = new Date(tweet.created_at);
+
+    const currentDate = new Date();
+
+    const timePassed = timeago.format(tweetCreatedAt, currentDate, 'en_US');
+
+    $tweet.find('.date-label').text(timePassed);
     return $tweet;
   };
 

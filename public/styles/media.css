@@ -10,16 +10,15 @@
 
   .navbar {
     display: flex;
-    justify-content: space-between; /* Pushes content to both edges */
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     height: 10vh;
   }
 
-
   .container {
-    margin: 20px auto 20px; /* center aligned to the main element / body */
+    margin: 20px auto 20px;
     background-color: #f4f1ec;
     padding: 40px;
   }
@@ -45,13 +44,14 @@
   }
 
   .tweet-label {
-    font-size: 18px;
+    font-size: 15px;
+    max-height: fit-content;
   }
 
   .footer-tweets {
     margin-top: 10px;
   }
-
+  
   .tweet-nav-text {
     font-size: 15px;
   }
@@ -88,8 +88,8 @@
 
   .div-container {
     display: flex;
-    flex-direction: row; /* Lay out the items horizontally */
-    height: 100%; /* Fill the height of the viewport */
+    flex-direction: row;
+    height: 100%;
     align-items: flex-start;
     gap: 8em;
     margin: 2em;
@@ -119,8 +119,8 @@
   }
   
   .container {
-    flex: 1; /* Take up remaining available space */
-    max-width: 60%; /* Set a maximum width for the container */
+    flex: 1;
+    max-width: 60%;
   }
 
 }
