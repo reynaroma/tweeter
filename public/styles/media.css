@@ -81,19 +81,20 @@
 }
 
 /* Desktop Styles */
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1024px) {
   body {
     background-color: #f4f1ec;
   }
+
   .div-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Lay out the items horizontally */
+    height: 100%; /* Fill the height of the viewport */
     align-items: flex-start;
     gap: 8em;
     margin: 2em;
     margin-top: 4em;
   }
-
   .header-login {
     height: 360px;
     width: 40%;
@@ -101,7 +102,7 @@
     background-color: #bdad00;
     background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
   }
-
+  
   .header-login-name {
     margin-top: 10px;
     color: #FFFFFF;
@@ -113,12 +114,13 @@
     width: 180px;
     height: 180px;
   }
-
-  .tweet-label {
-    font-size: 18px;
-  }
-
   .footer-tweets {
     margin-top: 10px;
   }
+  
+  .container {
+    flex: 1; /* Take up remaining available space */
+    max-width: 60%; /* Set a maximum width for the container */
+  }
+
 }

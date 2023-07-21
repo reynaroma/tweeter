@@ -62,18 +62,18 @@ $(document).ready(function () {
 
   const loadTweets = function () {
     console.log('Button clicked, performing ajax call GET REQUEST...');
-    $('.button-tweet').click('click', function () {
-      $.ajax({
-        method: 'GET',
-        url: '/tweets',
-        datatype: 'json'
-      }).then((response) => {
-        console.log(response);
-        renderTweets(response);
-      }).catch((error) => {
-        console.error('Error:', error.status, error.responseText);
-      });
+    // $('.button-tweet').click('click', function () {
+    $.ajax({
+      method: 'GET',
+      url: '/tweets',
+      datatype: 'json'
+    }).then((response) => {
+      console.log(response);
+      renderTweets(response);
+    }).catch((error) => {
+      console.error('Error:', error.status, error.responseText);
     });
+    // });
   };
 
   // add an event listener that listens for the submit event
@@ -84,10 +84,10 @@ $(document).ready(function () {
     const $errorElement = $('.error-message');
     const $textarea = $('#tweet-text');
     // event listener for textarea if there's an input
-    $textarea.on('input', function() {
+    $textarea.on('input', function () {
       $errorElement.slideUp();
     });
-    
+
     if (tweetText.trim() === '') {
       $errorElement.text('Error: Tweet cannot be empty');
       $errorElement.slideDown();

@@ -34,6 +34,10 @@
 .tweet-label {
   margin-left: 50px;
   margin-right: 50px;
+  word-wrap: break-word;      
+  max-height: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 hr {
