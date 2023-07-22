@@ -6,7 +6,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-  console.log('I am inside the event handler');
+
   const renderTweets = function (tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
@@ -61,14 +61,12 @@ $(document).ready(function () {
   };
 
   const loadTweets = function () {
-    console.log('Button clicked, performing ajax call GET REQUEST...');
 
     $.ajax({
       method: 'GET',
       url: '/tweets',
       datatype: 'json'
     }).then((response) => {
-      console.log(response);
       renderTweets(response);
     }).catch((error) => {
       console.error('Error:', error.status, error.responseText);
@@ -103,8 +101,6 @@ $(document).ready(function () {
       $errorElement.hide();
     }
 
-    $('.counter').text('140');
-
     // serialize the form data
     $.ajax({
       method: 'POST',
@@ -112,7 +108,7 @@ $(document).ready(function () {
       data: $(this).serialize(),
       datatype: 'json',
     }).then((response) => {
-      console.log('Success:', response);
+      $('.counter').text('140');
       $(this)[0].reset();
       loadTweets();
     }).catch((error) => {
